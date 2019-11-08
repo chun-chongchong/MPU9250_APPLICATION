@@ -1,0 +1,146 @@
+if(tmp>>3 == Cross)：	  xxxxx | xxx 
+  			(确定列)
+data[i]  i：确定行
+
+（此行列都是指下面的）
+
+cccccc
+cccccc
+cccccc
+cccccc
+cccccc
+cccccc
+cccccc
+cccccc
+aaaaaa bbbbbb
+aaaaaa bbbbbb
+aaaaaa bbbbbb
+aaaaaa bbbbbb
+aaaaaa bbbbbb
+aaaaaa bbbbbb
+aaaaaa bbbbbb
+aaaaaa bbbbbb
+
+
+随机种子 srand(calendar.sec);
+随机数   food.X=rand()%128;
+	 food.Y=rand()%64;
+
+
+首先：  先画下数组（以坐标）
+
+
+
+
+键盘 直接用value来判断up down left right 
+
+i
+
+00000000 
+01000110
+01001001    S
+01001001
+01001001
+00110001
+
+		   (x,y)
+00000001 -> 0x01   (0,1)
+00000010 -> 0x02   (0,2)
+00000100 -> 0x03   (0,3)
+00001000 -> 0x04
+00010000 -> 0x05
+00100000 -> 0x06
+01000000 -> 0x07
+10000000 -> 0x08   
+x通过i //data[i]  来变
+y通过  if(tmp>>3 == Cross)	 
+
+
+
+1*8的数组！！
+所以 循环的时候x要循环128次  
+（数组全部 暂时完成）
+
+
+定时器间隔时间（1.5s） （64,16）以下消失！！  蛇身部分没做
+
+
+按键
+value：
+
+6：up			8：left   		9：down   		12：right
+(x,y+1)			(x-1,y)			(x,y-1)			(x+1,y)
+确定蛇头，判断当前方向（当前向左，就不能向右拐）//判断蛇头和后一个的坐标关系？（√）
+
+
+
+
+
+
+确定（复制）蛇头和蛇尾，移动时蛇头加一，蛇尾clean. 吃到食物则蛇尾不clean？
+画蛇身时，  先把吃到的食物个数回传给蛇长（i+(1/2)） 把蛇长作为判断条件 （if(z=0;z<snake.long;z++)）
+
+画蛇身，（实在不行就给 上下左右各写一个，判断是否有相同的x值，取对应的i值）  
+
+
+
+
+
+游戏的规则:
+判断该点缓存是否为1（1表示存在蛇身或其他物体，0表示空白单元），如果为1，则表明蛇遇到物体了，如果该物体是食物，则蛇身+1，如果不为食物则表明蛇撞自己了，即游戏失败，此外还要判断该坐标是否超出边界。
+
+
+
+
+食物： 
+	srand(time)
+	rand()
+
+
+
+游戏进程控制：
+开了一个定时器，周期决定蛇的移动速度。进入定时器后，根据当前的移动方向，进入不同的状态机，计算下一坐标，判断，（吃食物或者移动），移动蛇身将坐标往数组后面挪，如果游戏失败，将游戏标志位置位，主函数则实时判断游戏是否失败，如果失败，则关闭定时器，清屏，显示游戏分数（蛇身长度），并进入死循环或等待系统软复位
+
+
+
+
+
+
+struct struct_name {
+	int x;
+	int y;
+	....
+};
+
+sizeof(struct_name) = 10;   
+
+struct struct_name name;
+
+name.x = 1; name.y = 2;
+[1 2 - - -
+ - - - - -]
+ - - - - -
+
+struct struct_name *p_name;
+
+XXXXX!!!!! p_name->x = 1;   //此时 因为p_name是个指针，所以分配的只是一个空间（用来存放地址，并非一个完整的结构体的空间）
+
+
+
+struct struct_name xyz;
+p_name = &xyz;	（此时系统给结构体变量xyz分配了空间）
+p_nmae->x = 1;	（此时 p_name 指向xyz）
+
+p_name = &a; (此时保存的是a的地址)
+
+[-] - - - - 
+[ 1 - - - -
+  - - - - - ]
+
+
+
+OLED_Clear();    ->    清全屏     
+key_diraction(key);    
+
+
+蛇身由吃掉的食物来定，即吃掉了i个食物，则将i回传给蛇身？
