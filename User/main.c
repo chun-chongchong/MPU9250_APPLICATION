@@ -170,10 +170,6 @@ int main(void)
 	TIM2_Init();
 	xxxx(&snake);
 	play(&snake,&food);
-	while(1)
-	{
-	
-	}	
 }
 
 
