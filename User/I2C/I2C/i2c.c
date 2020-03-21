@@ -295,3 +295,4 @@ void DATA_printf(int8_t *s,int16_t temp_data)
 //		Send_data(errorvalue,0x00);
 //	}
 }
+/* I2C moudule */
