@@ -88,6 +88,6 @@ int main()
 			if (!I2C_Read(mpu_addr, user_addr, 1, &tmp))
 				flag = 0;
 		}
-		/* VERSION V1.0 */
+
 	}
 }
