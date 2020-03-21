@@ -364,7 +364,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\I2C;..\..\Lib\common\inc;..\..\Lib\Cortex_Include</IncludePath>
+              <IncludePath>.\I2C;..\..\Lib\common\inc;..\..\Lib\Cortex_Include;.\soft_I2C</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -488,14 +488,14 @@
               <FilePath>.\I2C\delay.c</FilePath>
             </File>
             <File>
-              <FileName>i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\I2C\i2c.c</FilePath>
-            </File>
-            <File>
               <FileName>MPU9250.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\I2C\MPU9250.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\I2C\i2c.c</FilePath>
             </File>
           </Files>
         </Group>

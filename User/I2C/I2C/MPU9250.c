@@ -294,7 +294,7 @@ MPU9250_FIFO[5][10]=sum/10;
 }
 
 /*******************************************************/
-void MPU9250_getMotion6_test_func(int16_t *ax) 
+void MPU9250_getMotion6_test_func(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int16_t* gy, int16_t* gz) 
 {
 	memset(buffer, 0, sizeof(buffer));
 	memset(MPU9250_FIFO, 0, sizeof(MPU9250_FIFO));
@@ -302,8 +302,13 @@ void MPU9250_getMotion6_test_func(int16_t *ax)
 	while(!MPU9250_is_DRY());
 	if(MPU9250_RAW_DATA_RDY_INT()){
 	//ACCEL_XOUT_H
-		I2C_Read(GYRO_ADDRESS, GYRO_ZOUT_H, 2, buffer);
-	  *ax=((((int16_t)buffer[0]) << 8) | buffer[1]) / 16384;
+		I2C_Read(GYRO_ADDRESS, GYRO_XOUT_H, 14, buffer);
+	  *gx=((((int16_t)buffer[0]) << 8) | buffer[1]);
+		*gy=((((int16_t)buffer[2]) << 8) | buffer[3]);
+		*gz=((((int16_t)buffer[4]) << 8) | buffer[5]);
+		*ax=((((int16_t)buffer[8]) << 8) | buffer[9]);
+		*ay=((((int16_t)buffer[10]) << 8) | buffer[11]);
+		*az=((((int16_t)buffer[12]) << 8) | buffer[13]);
 	}		
 }
 
@@ -319,7 +324,7 @@ void MPU9250_getMotion6(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int1
 //	if(MPU9250_is_DRY()){
 	while(!MPU9250_is_DRY());
 	if(MPU9250_RAW_DATA_RDY_INT()){
-	I2C_Write(GYRO_ADDRESS, GYRO_XOUT_H, 14, buffer);
+	I2C_Read(GYRO_ADDRESS, GYRO_XOUT_H, 14, buffer);
     mpu9250_value.Lastgx=(((int16_t)buffer[0]) << 8) | buffer[1];
     mpu9250_value.Lastgy=(((int16_t)buffer[2]) << 8) | buffer[3];
     mpu9250_value.Lastgz=(((int16_t)buffer[4]) << 8) | buffer[5];
