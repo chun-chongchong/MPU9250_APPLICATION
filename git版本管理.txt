@@ -1,0 +1,16 @@
+git init      创建git仓库  一个工程只要一次
+gitignore     忽略某些文件，记得把自己+进去
+git add .     把这个目录下的所有东西都放进仓库  也可以add一个具体文件
+git log       看提交记录
+git diff      看修改  红色名的可以看
+git reset     
+git status    看状态   可以看到红名和绿名
+git commit -m "xxxx"   提交信息的名字
+git commit -s  比-m多个签名
+git reset --hard 8e320d992f83cd79f6d86a47ccdbf3e08078192f   回退到这个，不能往后
+git reset --soft 8e320d992f83cd79f6d86a47ccdbf3e08078192f   跟status差不多
+git checkout 跟reset --hard差不多 但是切换到那里，可以版本向后跳
+
+保存
+git add 
+git commit -m "xxxx"
