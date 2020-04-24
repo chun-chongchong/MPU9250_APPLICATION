@@ -28,17 +28,17 @@ int main()
 		
 
 		MPU9250_getMotion6_test_func(&ax,&ay,&az,&gx,&gy,&gz);
-		sprintf(buf, "ax = %d\n", ax);
+		sprintf(buf, "ax = %.3f\n", (float)ax/32768*4);
 		Usart_SendData(USART1, (uint8_t *)buf);
-		sprintf(buf, "ay = %d\n", ay);
+		sprintf(buf, "ay = %.3f\n", (float)ay/32768*4);
 		Usart_SendData(USART1, (uint8_t *)buf);
-		sprintf(buf, "az = %d\n", az);
+		sprintf(buf, "az = %.3f\n", (float)az/32768*4);
 		Usart_SendData(USART1, (uint8_t *)buf);
-		sprintf(buf, "gx = %d\n", gx);
+		sprintf(buf, "gx = %.3f\n", (float)gx/32768*1000);
 		Usart_SendData(USART1, (uint8_t *)buf);
-		sprintf(buf, "gy = %d\n", gy);
+		sprintf(buf, "gy = %.3f\n", (float)gy/32768*1000);
 		Usart_SendData(USART1, (uint8_t *)buf);
-		sprintf(buf, "gz = %d\n", gz);
+		sprintf(buf, "gz = %.3f\n", (float)gz/32768*1000);
 		Usart_SendData(USART1, (uint8_t *)buf);
 		
 		Usart_SendByte(USART1,0X0D);	 //»»ÐÐ
